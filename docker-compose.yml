@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  heavenproperty:
+    image: ${DOCKER_REGISTRY-}heavenproperty
+    build:
+      context: .
+      dockerfile: HeavenProperty/Dockerfile
