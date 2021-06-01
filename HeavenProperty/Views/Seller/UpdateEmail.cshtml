@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model UpdateEmailViewModel
+@{
+    ViewData["Title"] = "Update Email";
+}
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<div class="register-border my-acknowledgement-div-align">
+    <div class="my-div-style">
+        <h3>Update Address</h3>
+
+        <h2>  </h2>
+    </div>
+    <form method="post" asp-action="UpdateEmail" asp-controller="Seller" class="my-form-column my-form">
+        <div class="row align-items-center my-form-div-style">
+            <label asp-for="Email" class="my-label">Address:</label>
+            <div class="my-input">
+                <input type="text" name="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="my-btn-position">
+            <button type="submit" class="btn btn-dark my-btn-style">Update</button>
+        </div>
+
+    </form>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

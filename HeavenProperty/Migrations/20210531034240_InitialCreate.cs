@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SqlServerEFSample.Migrations
+namespace HeavenProperty.Migrations
 {
     public partial class InitialCreate : Migration
     {
@@ -12,12 +12,12 @@ namespace SqlServerEFSample.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Phone = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Phone = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -30,16 +30,16 @@ namespace SqlServerEFSample.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Title = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Rooms = table.Column<int>(type: "int", nullable: false),
                     BathRooms = table.Column<int>(type: "int", nullable: false),
                     CarParkings = table.Column<int>(type: "int", nullable: false),
-                    Type = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FloorArea = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    LandArea = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    RV = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Type = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    FloorArea = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    LandArea = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    RV = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Icon = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Seller_Id = table.Column<int>(type: "int", nullable: false),
                     AssignedToId = table.Column<int>(type: "int", nullable: true)
@@ -59,6 +59,12 @@ namespace SqlServerEFSample.Migrations
                 name: "IX_Properties_AssignedToId",
                 table: "Properties",
                 column: "AssignedToId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Sellers_Email_Phone",
+                table: "Sellers",
+                columns: new[] { "Email", "Phone" },
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

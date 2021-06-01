@@ -110,3 +110,144 @@ body {
     display: flex;
     align-items: center;
 }
+
+.my-logo-text {
+    background: linear-gradient( 135deg, #F761A1 10%, #8C1BAB 100%);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+@media (max-width: 1199px){
+    .hide-logo {
+        display: none;
+    }
+    .change-width {
+        -ms-flex: 0 0 100% !important;
+        flex: 0 0 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+.register-border {
+    border: solid 1px #C1C2C7;
+    border-radius: 10px;
+    padding: 30px 50px;
+}
+
+.my-fixed-header {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    right: 0;
+    width: 100%;
+}
+
+.my-content-position {
+    margin-top: 120px;
+}
+.my-h2 {
+    margin-bottom: 20px;
+}
+.my-label {
+    width: 100px
+}
+
+.my-input {
+    flex: 1;
+}
+
+.my-form-item {
+    margin: 10px 5px;
+    flex: 1;
+}
+
+.my-inner-input {
+    width: 100%;
+}
+
+.my-acknowledgement-div-align {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+.my-success-text-color {
+    color: #40cc8a;
+}
+
+.my-failure-text-color {
+    color: #ff7574;
+}
+
+.my-acknowledgement-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.my-acknowledgement-img {
+    width: 50px;
+    margin-right: 20px;
+}
+.my-text-align {
+    text-align: center;
+}
+.my-btn-position {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    flex: 1;
+}
+.my-btn-style {
+    order-radius: 8px !important;
+    padding: 20px 30px;
+}
+
+.my-login-font-size {
+    font-size:24px;
+}
+
+.my-login-font-color {
+    color: #666666;
+}
+
+.my-div-style {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1;
+    width: 100%;
+    border-bottom: solid 1px #C1C2C6;
+    padding: 10px 0;
+    margin: 0 10px;
+}
+
+
+.my-div-style img {
+    width: 20px;
+    height: 20px;
+    
+}
+
+.my-div-style span {
+    color: darkcyan;
+}
+
+.my-hover div:hover {
+    cursor: pointer;
+    background: blue;
+}
+
+.my-form {
+    width: 100%;
+    flex: 1;
+    display: flex;
+}
+
+.my-form-div-style {
+    margin: 20px 20px 0px 0px;
+}
+
+.my-form-column {
+    flex-flow:column;
+}

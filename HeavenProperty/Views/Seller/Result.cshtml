@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Result";
+}
+
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<h2 class="my-h2">
+    <span class="my-logo-text">Heaven Property</span>
+</h2>
+
+<div class="register-border my-acknowledgement-div-align">
+    @if (ViewBag.IsSuccess)
+    {
+        <div class="my-acknowledgement-div">
+
+            <img class="my-acknowledgement-img" src="/Images/success.png" />
+            <h1 class="my-success-text-color">@ViewBag.Info</h1>
+        </div>
+        if (ViewBag.IsRegister)
+        {
+            <p class="my-text-align">Please go to the <a asp-area="" asp-controller="Seller" asp-action="Login">login page</a> to log in, or back to the <a asp-area="" asp-controller="Home" asp-action="Index">home page</a></p>
+
+        }
+    }
+    else
+    {
+        <div class="my-acknowledgement-div">
+
+            <img class="my-acknowledgement-img" src="/Images/failed.png" />
+            <h1 class="my-failure-text-color">@ViewBag.Info</h1>
+        </div>
+        <p class="my-text-align">
+            Some Error occurs: @ViewBag.ErrorMsg
+        </p>
+        if (ViewBag.IsRegister)
+        {
+            <p class="my-text-align">
+                Re-try to <a asp-area="" asp-controller="Seller" asp-action="Register">registration</a>, or back to the <a asp-area="" asp-controller="Home" asp-action="Index">home page</a>
+            </p>
+        }
+
+    }
+</div>

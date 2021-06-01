@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "My Property";
+}
+@model DeleteViewModel
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<div class="register-border my-acknowledgement-div-align">
+    <div class="my-div-style">
+        <h3>My Profile</h3>
+        <a asp-area="" asp-controller="Seller" asp-action="Add" class="btn btn-outline-secondary">Add</a>
+    </div>
+    @if (ViewBag.properties != null)
+    {
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Rooms</th>
+                <th>BathRooms</th>
+                <th>CarParkings</th>
+                <th>Type</th>
+                <th>FloorArea</th>
+                <th>LandArea</th>
+                <th>RV</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var p in ViewBag.properties)
+            {
+        <form asp-action="Delete" asp-controller="Seller">
+            <tr>
+                <td>@p.Title</td>
+                <td>@p.Location</td>
+                <td>@p.Rooms</td>
+                <td>@p.BathRooms</td>
+                <td>@p.CarParkings</td>
+                <td>@p.Type</td>
+                <td>@p.FloorArea</td>
+                <td>@p.LandArea</td>
+                <td>@p.RV</td>
+                <td>@p.Email</td>
+                <td><button class="btn btn-outline-info btn-sm" type="submit" name="PropertyId" value="@p.Id">Delete</button></td>
+            </tr>
+        </form>
+            }
+        </table>
+    }
+</div>

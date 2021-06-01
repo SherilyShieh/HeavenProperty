@@ -1,0 +1,57 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Login";
+}
+@model LoginViewModel
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<div class="register-border my-acknowledgement-div-align">
+
+    <h3 class="my-h2">
+        <span class="my-logo-text">Heaven Property</span>
+    </h3>
+    <p class="my-login-font-size my-login-font-color">
+        Sign in
+    </p>
+    <p class="my-login-font-color">
+        Use your Heaven Property Account
+    </p>
+
+    <form method="post" asp-action="Login" asp-controller="Seller">
+        <div class="row align-items-center my-form-item">
+            <label asp-for="Email" class="my-label">Email:</label>
+            <div class="my-input">
+                <input type="text" name="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="row align-items-center my-form-item">
+            <label asp-for="Password" class="my-label">Password:</label>
+            <div class="my-input">
+                <input type="password" name="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+        </div>
+        @if (!string.IsNullOrEmpty(@ViewBag.LoginError))
+        {
+            <div>
+                <span class="text-danger">@ViewBag.LoginError</span>
+            </div>
+            
+        }
+        <div>
+            <a asp-area="" asp-controller="Seller" asp-action="ForgetPwd">Forget password?</a>
+        </div>
+
+
+        <div class="my-btn-position">
+            <button type="submit" class="btn btn-dark">Sign in</button>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

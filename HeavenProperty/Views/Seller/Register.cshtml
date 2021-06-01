@@ -1,8 +1,91 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
+@model Seller
 @{
+    ViewData["Title"] = "Register";
 }
-<div>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
+<h2 class="my-h2">
+    <span class="my-logo-text">Heaven Property</span>
+</h2>
+<div class="register-border">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-sm-12 col-md-8 cold-lg-8 change-width">
+            <form method="post" asp-action="Register" asp-controller="Seller">
+                <fieldset>
+                    <legend>
+                        Register as a Seller
+                    </legend>
+                </fieldset>
+                <div class="row align-items-center">
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="FirstName" class="my-label">First Name:</label>
+                        <div class="my-input">
+                            <input type="text" name="FirstName" class="form-control"  asp-for="FirstName"/>
+                            <span asp-validation-for="FirstName" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="LastName" class="my-label">Last Name:</label>
+                        <div class="my-input">
+                            <input type="text" name="LastName" class="form-control" asp-for="LastName" />
+                            <span asp-validation-for="LastName" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="Phone" class="my-label">Phone:</label>
+                        <div class="my-input">
+                            <input type="text" asp-for="Phone" name="Phone" class="form-control" />
+                            <span asp-validation-for="Phone" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="Email" class="my-label">Email:</label>
+                        <div class="my-input">
+                            <input type="email" asp-for="Email" name="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center my-form-item">
+                    <label asp-for="Address" class="my-label">Address:</label>
+                    <div class="my-input">
+                        <input type="text" asp-for="Address" name="Address" class="form-control" />
+                        <span asp-validation-for="Address" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="Password" class="my-label">Password:</label>
+                        <div class="my-input">
+                            <input type="password" asp-for="Password" name="Password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="ConfirmPassword" class="my-label">Confirm:</label>
+                        <div class="my-input">
+                            <input type="password" asp-for="ConfirmPassword" name="ConfirmPassword" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-btn-position">
+                    <button type="submit" class="btn btn-dark my-btn-style">Register</button>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-auto cold-lg-auto hide-logo">
+            <img src="/Images/register_logo.png" />
+        </div>
+    </div>
 
 </div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

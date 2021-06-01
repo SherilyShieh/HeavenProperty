@@ -28,6 +28,25 @@ namespace HeavenProperty
         {
             services.AddControllersWithViews();
             services.AddDirectoryBrowser();
+            services.AddMemoryCache();
+            services.AddDistributedMemoryCache();
+            services.AddSession();
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+
+                options.CheckConsentNeeded = context => true;
+
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+
+            });
+
+            services.AddSession(opts =>
+            {
+
+                opts.Cookie.IsEssential = true;
+
+            });
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +62,8 @@ namespace HeavenProperty
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.UseSession();
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseStaticFiles(new StaticFileOptions()
@@ -68,6 +89,7 @@ namespace HeavenProperty
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+            app.UseCookiePolicy();
         }
     }
 }

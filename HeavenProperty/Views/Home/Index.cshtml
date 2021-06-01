@@ -1,8 +1,65 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model SearchViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<div class="register-border my-acknowledgement-div-align">
+    <div class="my-div-style">
+        <form method="post" asp-action="Index" asp-controller="Home" class="my-form">
+            <div class="column align-items-center justify-content-between my-form">
+                <div class="row align-items-center my-form-div-style my-form">
+                    <label asp-for="Location" class="my-label">Location:</label>
+                    <div class="my-input">
+                        <input type="text" name="Location" class="form-control" asp-for="Location" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row align-items-center my-form-div-style my-form">
+                    <label asp-for="Type" class="my-label">Type:</label>
+                    <div class="my-input">
+                        <input type="text" name="Type" class="form-control" asp-for="Type"/>
+                        <span asp-validation-for="Type" class="text-danger"></span>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-dark btn-sm ">Search</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+    @if (ViewBag.properties != null)
+    {
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Rooms</th>
+                <th>BathRooms</th>
+                <th>CarParkings</th>
+                <th>Type</th>
+                <th>FloorArea</th>
+                <th>LandArea</th>
+                <th>RV</th>
+                <th>Email</th>
+            </tr>
+            @foreach (var p in ViewBag.properties)
+            {
+                <tr>
+                    <td>@p.Title</td>
+                    <td>@p.Location</td>
+                    <td>@p.Rooms</td>
+                    <td>@p.BathRooms</td>
+                    <td>@p.CarParkings</td>
+                    <td>@p.Type</td>
+                    <td>@p.FloorArea</td>
+                    <td>@p.LandArea</td>
+                    <td>@p.RV</td>
+                    <td>@p.Email</td>
+                </tr>
+            }
+        </table>
+    }
 </div>

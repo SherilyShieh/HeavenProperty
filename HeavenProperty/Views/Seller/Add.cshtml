@@ -1,0 +1,103 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"]= "My Profile";
+}
+@model AddPropertyViewModel
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<div class="register-border my-acknowledgement-div-align">
+    <div class="my-div-style">
+        <h3>Create Property</h3>
+        <h3> </h3>
+    </div>
+    <div class="row justify-content-center align-items-center">
+        <div class="col-12">
+            <form method="post" asp-action="Add" asp-controller="Seller">
+                <div class="row align-items-center">
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="Title" class="my-label">Property Title:</label>
+                        <div class="my-input">
+                            <input type="text" name="Title" class="form-control" asp-for="Title" />
+                            <span asp-validation-for="Title" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="Rooms" class="my-label">Rooms:</label>
+                        <div class="my-input">
+                            <input type="number" name="Rooms" class="form-control" asp-for="Rooms"/>
+                            <span asp-validation-for="Rooms" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="BathRooms" class="my-label">BathRooms:</label>
+                        <div class="my-input">
+                            <input type="number" asp-for="BathRooms" name="BathRooms" class="form-control" />
+                            <span asp-validation-for="BathRooms" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="RV" class="my-label">RV:</label>
+                        <div class="my-input">
+                            <input type="text" asp-for="RV" name="RV" class="form-control" />
+                            <span asp-validation-for="RV" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center my-form-item">
+                    <label asp-for="Location" class="my-label">Location:</label>
+                    <div class="my-input">
+                        <input type="text" asp-for="Location" name="Location" class="form-control" />
+                        <span asp-validation-for="Location" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row align-items-center my-form-item">
+                    <label asp-for="CarParkings" class="my-label">CarParkings:</label>
+                    <div class="my-input">
+                        <input type="number" asp-for="CarParkings" name="CarParkings" class="form-control" />
+                        <span asp-validation-for="CarParkings" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="Type" class="my-label">Type:</label>
+                        <div class="my-input">
+                            <input type="text" asp-for="Type" name="Type" class="form-control" />
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="Email" class="my-label">Email:</label>
+                        <div class="my-input">
+                            <input type="text" asp-for="Email" name="Email" class="form-control" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="FloorArea" class="my-label">FloorArea:</label>
+                        <div class="my-input">
+                            <input type="text" asp-for="FloorArea" name="FloorArea" class="form-control" />
+                            <span asp-validation-for="FloorArea" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
+                        <label asp-for="LandArea" class="my-label">LandArea:</label>
+                        <div class="my-input">
+                            <input type="text" asp-for="LandArea" name="LandArea" class="form-control" />
+                            <span asp-validation-for="LandArea" class="text-danger"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-btn-position">
+                    <button type="submit" class="btn btn-dark my-btn-style">Add</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

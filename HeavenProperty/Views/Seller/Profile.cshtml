@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"]= "My Profile";
+}
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<div class="register-border my-acknowledgement-div-align">
+    @if (ViewBag.currentUser != null)
+    {
+        <div class="my-div-style">
+            <h3>My Profile</h3>
+            <form method="post" asp-action="Logout" asp-controller="Seller">
+                <button type="submit" class="btn btn-outline-secondary">Logout</button>
+            </form>
+        </div>
+        <div class="my-div-style my-form">
+            <label>Name</label>
+            <span>@ViewBag.currentUser.GetFullName()</span>
+            <div class="row align-items-center">
+                <a asp-area="" asp-controller="Seller" asp-action="UpdateName" class="btn btn-outline-info btn-sm">Edit</a>
+                <img src="/Images/next.png" />
+            </div>
+        </div>
+        <div class="my-div-style"  >
+            <label>Email</label>
+            <span>@ViewBag.currentUser.Email</span>
+            <div class="row align-items-center">
+                <a asp-area="" asp-controller="Seller" asp-action="UpdateEmail" class="btn btn-outline-info btn-sm">Edit</a>
+                <img src="/Images/next.png" />
+            </div>
+                
+        </div>
+        <div class="my-div-style" >
+            <label>Phone</label>
+            <span>@ViewBag.currentUser.Phone</span>
+            <div class="row align-items-center">
+                <a asp-area="" asp-controller="Seller" asp-action="UpdatePhone" class="btn btn-outline-info btn-sm">Edit</a>
+                <img src="/Images/next.png" />
+            </div>
+        </div>
+        <div class="my-div-style " >
+            <label>Address</label>
+            <span>@ViewBag.currentUser.Address</span>
+            <div class="row align-items-center">
+                <a asp-area="" asp-controller="Seller" asp-action="UpdateAddress" class="btn btn-outline-info btn-sm">Edit</a>
+                <img src="/Images/next.png" />
+            </div>
+        </div>
+        <div class="my-div-style" >
+            <label>Password</label>
+            <span>******</span>
+            <div class="row align-items-center">
+                <a asp-area="" asp-controller="Seller" asp-action="UpdatePwd" class="btn btn-outline-info btn-sm">Edit</a>
+                <img src="/Images/next.png" />
+            </div>
+        </div>
+
+    }
+    else
+    {
+
+
+    }
+</div>
