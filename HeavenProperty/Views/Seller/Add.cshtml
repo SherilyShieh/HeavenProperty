@@ -3,7 +3,7 @@
 *@
 
 @{
-    ViewData["Title"]= "My Profile";
+    ViewData["Title"] = "My Profile";
 }
 @model AddPropertyViewModel
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -26,7 +26,7 @@
                     <div class="row align-items-center col-sm-12 col-md-12 col-lg-6 my-form-item">
                         <label asp-for="Rooms" class="my-label">Rooms:</label>
                         <div class="my-input">
-                            <input type="number" name="Rooms" class="form-control" asp-for="Rooms"/>
+                            <input type="number" name="Rooms" class="form-control" asp-for="Rooms" />
                             <span asp-validation-for="Rooms" class="text-danger"></span>
                         </div>
                     </div>
@@ -101,3 +101,7 @@
         </div>
     </div>
 </div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

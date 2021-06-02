@@ -5,7 +5,7 @@
 
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <div class="register-border my-acknowledgement-div-align">
-    <div class="my-div-style">
+    <div class="my-form">
         <form method="post" asp-action="Index" asp-controller="Home" class="my-form">
             <div class="column align-items-center justify-content-between my-form">
                 <div class="row align-items-center my-form-div-style my-form">
@@ -18,7 +18,7 @@
                 <div class="row align-items-center my-form-div-style my-form">
                     <label asp-for="Type" class="my-label">Type:</label>
                     <div class="my-input">
-                        <input type="text" name="Type" class="form-control" asp-for="Type"/>
+                        <input type="text" name="Type" class="form-control" asp-for="Type" />
                         <span asp-validation-for="Type" class="text-danger"></span>
                     </div>
                 </div>
@@ -30,36 +30,49 @@
         </form>
 
     </div>
-    @if (ViewBag.properties != null)
-    {
-        <table class="table">
-            <tr>
-                <th>Title</th>
-                <th>Location</th>
-                <th>Rooms</th>
-                <th>BathRooms</th>
-                <th>CarParkings</th>
-                <th>Type</th>
-                <th>FloorArea</th>
-                <th>LandArea</th>
-                <th>RV</th>
-                <th>Email</th>
-            </tr>
-            @foreach (var p in ViewBag.properties)
-            {
+    <div class="result-div">
+        @if (ViewBag.properties != null && ViewBag.properties.Count > 0)
+        {
+            <table class="table">
                 <tr>
-                    <td>@p.Title</td>
-                    <td>@p.Location</td>
-                    <td>@p.Rooms</td>
-                    <td>@p.BathRooms</td>
-                    <td>@p.CarParkings</td>
-                    <td>@p.Type</td>
-                    <td>@p.FloorArea</td>
-                    <td>@p.LandArea</td>
-                    <td>@p.RV</td>
-                    <td>@p.Email</td>
+                    <th>Title</th>
+                    <th>Location</th>
+                    <th>Rooms</th>
+                    <th>BathRooms</th>
+                    <th>CarParkings</th>
+                    <th>Type</th>
+                    <th>FloorArea</th>
+                    <th>LandArea</th>
+                    <th>RV</th>
+                    <th>Email</th>
                 </tr>
-            }
-        </table>
-    }
+                @foreach (var p in ViewBag.properties)
+                {
+                    <tr>
+                        <td>@p.Title</td>
+                        <td>@p.Location</td>
+                        <td>@p.Rooms</td>
+                        <td>@p.BathRooms</td>
+                        <td>@p.CarParkings</td>
+                        <td>@p.Type</td>
+                        <td>@p.FloorArea</td>
+                        <td>@p.LandArea</td>
+                        <td>@p.RV</td>
+                        <td>@p.Email</td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div class="my-empty-view">
+                <img src="/Images/empty.png" />
+                <p>Empty List, Please input valid search keys.</p>
+            </div>
+
+        }
+    </div>
 </div>
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

@@ -22,14 +22,14 @@
         <div class="row align-items-center my-form-item">
             <label asp-for="Email" class="my-label">Email:</label>
             <div class="my-input">
-                <input type="text" name="Email" class="form-control" />
+                <input type="text" name="Email" class="form-control" asp-for="Email"/>
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
         </div>
         <div class="row align-items-center my-form-item">
             <label asp-for="Password" class="my-label">Password:</label>
             <div class="my-input">
-                <input type="password" name="Password" class="form-control" />
+                <input type="password" name="Password" class="form-control" asp-for="Password"/>
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
         </div>

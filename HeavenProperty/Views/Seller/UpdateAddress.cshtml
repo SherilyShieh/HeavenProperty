@@ -17,7 +17,7 @@
         <div class="row align-items-center my-form-div-style">
             <label asp-for="Address" class="my-label">Address:</label>
             <div class="my-input">
-                <input type="text" name="Address" class="form-control" />
+                <input type="text" name="Address" class="form-control" asp-for="Address"/>
                 <span asp-validation-for="Address" class="text-danger"></span>
             </div>
         </div>

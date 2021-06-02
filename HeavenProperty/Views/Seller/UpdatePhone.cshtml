@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <div class="register-border my-acknowledgement-div-align">
     <div class="my-div-style">
-        <h3>Update Address</h3>
+        <h3>Update Phone</h3>
 
         <h2>  </h2>
     </div>
@@ -17,7 +17,7 @@
         <div class="row align-items-center my-form-div-style">
             <label asp-for="Phone" class="my-label">Phone:</label>
             <div class="my-input">
-                <input type="text" name="Phone" class="form-control" />
+                <input type="text" name="Phone" class="form-control" asp-for="Phone"/>
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
         </div>

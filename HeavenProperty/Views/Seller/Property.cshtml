@@ -29,22 +29,30 @@
             </tr>
             @foreach (var p in ViewBag.properties)
             {
-        <form asp-action="Delete" asp-controller="Seller">
-            <tr>
-                <td>@p.Title</td>
-                <td>@p.Location</td>
-                <td>@p.Rooms</td>
-                <td>@p.BathRooms</td>
-                <td>@p.CarParkings</td>
-                <td>@p.Type</td>
-                <td>@p.FloorArea</td>
-                <td>@p.LandArea</td>
-                <td>@p.RV</td>
-                <td>@p.Email</td>
-                <td><button class="btn btn-outline-info btn-sm" type="submit" name="PropertyId" value="@p.Id">Delete</button></td>
-            </tr>
-        </form>
+                <form asp-action="Delete" asp-controller="Seller">
+                    <tr>
+                        <td>@p.Title</td>
+                        <td>@p.Location</td>
+                        <td>@p.Rooms</td>
+                        <td>@p.BathRooms</td>
+                        <td>@p.CarParkings</td>
+                        <td>@p.Type</td>
+                        <td>@p.FloorArea</td>
+                        <td>@p.LandArea</td>
+                        <td>@p.RV</td>
+                        <td>@p.Email</td>
+                        <td><button class="btn btn-outline-info btn-sm" type="submit" name="PropertyId" value="@p.Id">Delete</button></td>
+                    </tr>
+                </form>
             }
         </table>
     }
+    @if (ViewBag.cookieError != null)
+    {
+        <div class="text-danger">
+            <span>@ViewBag.cookieError</span>
+        </div>
+
+     }
+
 </div>

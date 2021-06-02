@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 <div class="register-border my-acknowledgement-div-align">
     <div class="my-div-style">
-        <h3>Update Address</h3>
+        <h3>Reset Password</h3>
 
         <h2>  </h2>
     </div>
@@ -18,21 +18,22 @@
         <div class="row align-items-center my-form-div-style">
             <label asp-for="Email" class="my-label">Email:</label>
             <div class="my-input">
-                <input type="text" name="Email" class="form-control" />
+                <input type="text" name="Email" class="form-control" asp-for="Email" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
         </div>
         <div class="row align-items-center my-form-div-style">
             <label asp-for="Password" class="my-label">Password:</label>
             <div class="my-input">
-                <input type="password" name="Password" class="form-control" />
+                <input type="password" name="Password" class="form-control" asp-for="Password" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
         </div>
         <div class="row align-items-center my-form-div-style">
-            <label asp-for="ConfirmPassword" class="my-label">Confirm Password:</label>
+            <label asp-for="ConfirmPassword" class="my-label">Confirm:</label>
             <div class="my-input">
-                <input type="password" name="ConfirmPassword" class="form-control" />
+                <input type="password" name="ConfirmPassword" class="form-control" asp-for="ConfirmPassword" />
+
                 <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
             </div>
         </div>

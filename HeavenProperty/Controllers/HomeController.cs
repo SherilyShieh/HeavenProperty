@@ -29,7 +29,7 @@ namespace HeavenProperty.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult Index(SearchViewModel search)
+        public async Task<IActionResult> Index(SearchViewModel search)
         {
             if (ModelState.IsValid)
             {
@@ -37,6 +37,8 @@ namespace HeavenProperty.Controllers
                 var result = this._context.Properties.Where(item => string.IsNullOrEmpty(search.Type) ? item.Location.Contains(search.Location) : item.Location.Contains(search.Location) &&
                 item.Type.Equals(search.Type)).ToList();
                 ViewBag.properties = result;
+                await Task.Delay(0);
+                return View();
             }
             return View();
         }

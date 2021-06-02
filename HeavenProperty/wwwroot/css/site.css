@@ -251,3 +251,23 @@ body {
 .my-form-column {
     flex-flow:column;
 }
+
+.my-empty-view {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.my-empty-view img{
+    width:120px;
+}
+
+.my-empty-view p {
+    color: #999999;
+}
+
+.result-div {
+    margin-top: 20px;
+}

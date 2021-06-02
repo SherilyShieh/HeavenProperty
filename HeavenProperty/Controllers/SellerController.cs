@@ -79,7 +79,7 @@ namespace HeavenProperty.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public IActionResult Login(LoginViewModel loginViewModel)
+        public async Task<IActionResult> Login(LoginViewModel loginViewModel)
         {
             if (ModelState.IsValid)
             {
@@ -90,6 +90,7 @@ namespace HeavenProperty.Controllers
                     {
                         string currentUser = JsonConvert.SerializeObject(query);
                         HttpContext.Response.Cookies.Append("CurrentUser", currentUser);
+                        await Task.Delay(0);
                         return Redirect(url: "/Seller/Profile/" + query.Id);
                     } else
                     {
@@ -520,6 +521,7 @@ namespace HeavenProperty.Controllers
 
         [HttpPost]
         [AllowAnonymous]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> UpdatePwd(UpdatePwdViewModel seller)
         {
             if (ModelState.IsValid)
@@ -640,7 +642,7 @@ namespace HeavenProperty.Controllers
                 try
                 {
 
-                    var query = this._context.Sellers.First(t => t.Email.Equals(forget.Email));
+                    var query = this._context.Sellers.Where(t => t.Email.Equals(forget.Email)).First();
                     if (query != null)
                     {
                         query.Password = forget.Password;
